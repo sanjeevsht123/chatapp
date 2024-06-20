@@ -1,3 +1,4 @@
+import 'package:chatapp/auth/auth_Service.dart';
 import 'package:chatapp/components/myBotton.dart';
 import 'package:chatapp/components/myTextField.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,32 @@ class Register extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmController = TextEditingController();
 
-  signup() {}
+  signup(BuildContext context) async {
+    AuthService auth = AuthService();
+    try {
+      if (passwordController.text == confirmController.text) {
+        await auth.signupWithEmailandPassword(
+            emailController.text, passwordController.text);
+      } else {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text("password not matched !!"),
+              );
+            });
+      }
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text(e.toString()),
+            );
+          });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +88,7 @@ class Register extends StatelessWidget {
             ),
             Mybotton(
               bottonText: "Sign up",
-              onTap: signup,
+              onTap: () => signup(context),
             ),
             const SizedBox(
               height: 20,
