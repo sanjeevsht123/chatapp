@@ -1,3 +1,6 @@
+import 'package:chatapp/Screen/login.dart';
+import 'package:chatapp/auth/loginorregister.dart';
+import 'package:chatapp/components/lightmode.dart';
 import 'package:chatapp/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: lightMode,
+      home: const Loginorregister(),
     );
   }
 }
