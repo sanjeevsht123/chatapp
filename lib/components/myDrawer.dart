@@ -47,7 +47,7 @@ class Mydrawer extends StatelessWidget {
                 child: ListTile(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => const Setting()));
+                        MaterialPageRoute(builder: (context) => SettingPage()));
                     Navigator.of(context).pop();
                   },
                   leading: Icon(Icons.settings),
