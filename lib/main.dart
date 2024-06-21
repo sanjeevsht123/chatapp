@@ -1,6 +1,6 @@
 import 'package:chatapp/Screen/login.dart';
-import 'package:chatapp/auth/authGate.dart';
-import 'package:chatapp/auth/loginorregister.dart';
+import 'package:chatapp/services/auth/authGate.dart';
+import 'package:chatapp/services/auth/loginorregister.dart';
 import 'package:chatapp/components/lightmode.dart';
 import 'package:chatapp/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
